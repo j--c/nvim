@@ -22,6 +22,24 @@ ls.config.set_config {
 
 
 ls.snippets = {
+    markdown = {
+        ls.snippet({
+            trig='pr', name='Project', descr='project'
+        }, 
+        {
+            ls.text_node('* '),
+            ls.insert_node(1, 'project description'),
+            ls.insert_node(2, ' [special note]'),
+        }),
+        ls.snippet({
+            trig='na', name='Next Action', descr='next action'
+        }, 
+        {
+            ls.text_node('    * '),
+            ls.insert_node(1, 'next action description'),
+            ls.text_node(' [A]  ')
+        }),
+    },
     python = {
 
         ls.snippet({
