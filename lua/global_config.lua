@@ -82,5 +82,8 @@ vim.keymap.set('n', '<leader>h', ':sp<cr>', {noremap=true, silent=false})
 -- folding
 vim.keymap.set('n', '<space>', 'za', {noremap=true, silent=false})
 
---terminal
+-- terminal
 vim.keymap.set('t', '<Esc>', '<c-\\><c-n>', {noremap=true, silent=false})
+
+-- terminal / git
+vim.keymap.set('t', '<leader>gc', 'git commit -m "', {noremap=true, silent=false})
