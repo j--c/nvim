@@ -57,7 +57,7 @@ vim.g.mapleader = ","
 vim.keymap.set('n', '<leader>s', ':source %<cr>', {noremap=true, silent=false})
 
 -- hidden characters
-vim.keymap.set('n', '<leader>0', ':setlist!<cr>', {noremap=true, silent=false})
+vim.keymap.set('n', '<leader>0', ':set list!<cr>', {noremap=true, silent=false})
 
 -- buffers
 vim.keymap.set('n', '<leader>b', ':bn<cr>', {noremap=true, silent=false})

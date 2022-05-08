@@ -31,6 +31,7 @@ return require('packer').startup(function()
     use {'hrsh7th/cmp-buffer'}
     use {'hrsh7th/cmp-path'}
 
+
     -- telescope - fuzzy file finder... and more
     use {'nvim-telescope/telescope.nvim'}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
@@ -54,6 +55,7 @@ return require('packer').startup(function()
 
     -- luasnip - snippets
     use{'L3MON4D3/LuaSnip'}
+    use {'saadparwaiz1/cmp_luasnip'}
 
 
     -----------------------[[

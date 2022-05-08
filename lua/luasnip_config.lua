@@ -7,48 +7,38 @@
 
 
 local ls = require('luasnip')
-local types = require('luasnip.util.types')
 
 ls.config.set_config {
     history = true,
     updateevents = 'TextChanged,TextChangedI',
     
 }
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
 
+vim.keymap.set({ "i", "s" }, "<c-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
+
+local types = require('luasnip.util.types')
 
 -----------------------[[
 --      snippets       --
 -----------------------]]
 
 
-ls.snippets = {
-    markdown = {
-        ls.snippet({
-            trig='pr', name='Project', descr='project'
-        }, 
-        {
-            ls.text_node('* '),
-            ls.insert_node(1, 'project description'),
-            ls.insert_node(2, ' [special note]'),
-        }),
-        ls.snippet({
-            trig='na', name='Next Action', descr='next action'
-        }, 
-        {
-            ls.text_node('    * '),
-            ls.insert_node(1, 'next action description'),
-            ls.text_node(' [A]  ')
-        }),
-    },
-    python = {
-
-        ls.snippet({
+ls.add_snippets ('python', {
+    ls.snippet({
             trig='iu', name='importunittest', descr='import unittest'
         }, 
         {
             ls.text_node('import unittest')
         }),
-
         ls.snippet({
             trig='tc', name='TestCase', descr='unittest.TestCase'
         }, 
@@ -57,7 +47,16 @@ ls.snippets = {
             ls.insert_node(1, 'ClassName'),
             ls.text_node('(unittest.TestCase):')
         }),
-
+        ls.snippet({
+            trig='class', name='class', descr='class'
+        }, 
+        {
+            ls.text_node('class '),
+            ls.insert_node(1, 'Class Name'),
+            ls.text_node('('),
+            ls.insert_node(2, 'object'),
+            ls.text_node('):')
+        }),
         ls.snippet({
             trig='fn', name='function', descr='function'
         }, 
@@ -70,7 +69,6 @@ ls.snippets = {
             ls.insert_node(3, 'return_val'),
             ls.text_node(':')
         }),
-
         ls.snippet({
             trig='init', name='initfunction', descr='init function'
         }, 
@@ -107,26 +105,26 @@ ls.snippets = {
             ls.insert_node(2, 'class'),
             ls.text_node(')')
         }),
-    }
-}
-
-
-
------------------------[[
---       keymaps       --
------------------------]]
-
-
--- directly from TJ Devries
-vim.keymap.set({'i', 's'}, '<c-k>', function()
-  if ls.expand_or_jumpable() then
-    ls.expand_or_jump()
-  end
-end, {silent = true})
-
-vim.keymap.set({'i', 's'}, '<c-j>', function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
-end, { silent = true })
---]]
+        ls.snippet({
+            trig='at', name='asserttrue', descr='assert true'
+        }, 
+        {
+            ls.text_node('self.assertTrue('),
+            ls.insert_node(1, 'func_call'),
+            ls.text_node(')')
+        }),
+        ls.snippet({
+            trig='af', name='assertfalse', descr='assert false'
+        }, 
+        {
+            ls.text_node('self.assertFalse('),
+            ls.insert_node(1, 'func_call'),
+            ls.text_node(')')
+        }),
+        ls.snippet({
+            trig='utm', name='unittest.main', descr='unittest main call'
+        }, 
+        {
+            ls.text_node({'if __name__ == \'__main__\':', 'unittest.main()'})
+        })
+})
