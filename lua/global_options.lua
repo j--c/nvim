@@ -1,0 +1,32 @@
+vim.cmd("colorscheme tokyonight-night") 
+vim.opt.background = 'dark'
+vim.opt.termguicolors = true
+vim.opt.listchars = {tab = '▸ ', eol = '¬', space = '␣'}
+vim.opt.showmode = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.scrolloff = 8
+vim.opt.showcmd = true
+vim.opt.wildmenu = true
+vim.opt.mouse = 'a'
+vim.opt.relativenumber = true
+vim.opt.nu = true
+vim.opt.ruler = true
+vim.opt.showmatch = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.shiftround = true
+vim.opt.timeout = false
+vim.opt.timeoutlen = 10
+vim.opt.undofile = true
+vim.bo.undofile = true
+vim.opt.title = true
+vim.opt.hidden = true
+vim.opt.laststatus = 3
+vim.opt.path = vim.opt.path + '.**'
+vim.opt.foldlevelstart = 1
+vim.wo.colorcolumn = '100'
+vim.wo.signcolumn = 'yes'
