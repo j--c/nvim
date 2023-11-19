@@ -1,7 +1,9 @@
 local nvterm = require('nvterm')
-require 'nvterm'.add_cmd(5, '"python3 -m unittest -v')
-require 'nvterm'.add_cmd(6, '"python3 start_flaskapp.py')
 
+require 'nvterm'.setup({
+    [5] = '"python3 -m unittest -v',
+    [6] = '"python3 start_flaskapp.py'
+})
 
 vim.keymap.set('n', '<leader>2', function() 
     require 'nvterm'.run('', nil)
