@@ -2,7 +2,7 @@
 vim.g.mapleader = ","
 
 -- netrw
-vim.keymap.set('n', '<leader>1', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>1', vim.cmd.Vex)
 
 -- hidden characters
 vim.keymap.set('n', '<leader>0', ':set list!<cr>', {noremap=true, silent=false})
