@@ -30,3 +30,5 @@ vim.opt.path = vim.opt.path + '.**'
 vim.opt.foldlevelstart = 1
 vim.wo.colorcolumn = '100'
 vim.wo.signcolumn = 'yes'
+vim.opt.backup = false
+vim.opt.swapfile = false
