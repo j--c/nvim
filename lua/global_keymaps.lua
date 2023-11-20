@@ -23,6 +23,9 @@ vim.keymap.set('n', '<down>', '<nop>', {noremap=true, silent=false})
 vim.keymap.set('n', 'k', 'gk', {noremap=true, silent=false})
 vim.keymap.set('n', 'j', 'gj', {noremap=true, silent=false})
 
--- splits
-vim.keymap.set('n', '<leader>v', ':vsp<cr>', {noremap=true, silent=false})
-vim.keymap.set('n', '<leader>h', ':sp<cr>', {noremap=true, silent=false})
+-- editing
+vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('x', '<leader>p', '"_dP')
+
+-- avoid Q
+vim.keymap.set('n', 'Q', '<nop>', {noremap=true, silent=false})
