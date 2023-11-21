@@ -538,7 +538,9 @@ snippet init
 
 	app.config['SECRET_KEY'] = os.environ.get("$2")
 	app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, dbname)
+	app.config['SQLALCHEMY_DATABASE_URI'] = (
+		'sqlite:///' + os.path.join(basedir, dbname)
+	)
 	
 	db = SQLAlchemy(app)
 
@@ -562,5 +564,6 @@ snippet app
 
 snippet model
 	class $1(db.Model):
+
 		__tablename__ = $1s
 		id = db.Column(db.Integer, primary_key = True)
