@@ -57,8 +57,8 @@ return require('packer').startup(
         ----------------------------------------------------------
 
         -- NV Term
-        --use ('j--c/nvterm')
-        use ('~/dev/lua/nvterm')
+        use ('j--c/nvterm')
+        -- use ('~/dev/lua/nvterm')
 
         ----------------------------------------------------------
         
