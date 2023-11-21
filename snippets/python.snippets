@@ -525,6 +525,30 @@ snippet fprf
 	print(f"$0", file=${1:sys.stderr})
 
 # Flask
+snippet config
+
+	import os
+
+
+	basedir = os.path.abspath(os.path.dirname(__name__))
+
+
+	class Config(object):
+
+		SECRET_KEY = os.environ.get('secret key')
+		SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+	class DevelopmentConfig(Config):
+
+		HOST = '$1'
+		PORT = $2
+		DEBUG = True
+
+		SQLALCHEMY_DATABASE_URI = 'sqlite:///'+ os.path.join(basedir, '$3')
+		SQLALCHEMY_TRACK_MODIFICATIONS = False
+		$0
+
 snippet init
 	import os
 	from flask import Flask
