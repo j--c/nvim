@@ -529,24 +529,26 @@ snippet init
 	import os
 	from flask import Flask
 	from flask_sqlalchemy import SQLAlchemy
-	from flask_Migrate import Migrate
+	from flask_migrate import Migrate
 
 	app = Flask(__name__)
 	basedir = os.path.abspath(os.path.dirname(__file__))
+	dbname = "$1"
 
-	app.config['SECRET_KEY'] = os.environ.get("$1")
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, '$2.sqlite')
+
+	app.config['SECRET_KEY'] = os.environ.get("$2")
 	app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+	app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, dbname)
 	
 	db = SQLAlchemy(app)
 
 	Migrate(app, db)
 
 snippet app
-	from "$1" import app
+	from $1 import app
 
 
-	HOST = $2
+	HOST = "$2"
 	PORT = $3
 
 
@@ -556,7 +558,7 @@ snippet app
 		
 
 	if __name__ == '__main__':
-    	app.run(host=$2, port=$3, debug=True)
+    	app.run(host=HOST, port=PORT, debug=True)
 
 snippet model
 	class $1(db.Model):
