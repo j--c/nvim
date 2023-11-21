@@ -535,56 +535,46 @@ snippet config
 
 	class Config(object):
 
-		SECRET_KEY = os.environ.get('secret key')
+		SECRET_KEY = os.environ.get('$1')
 		SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 	class DevelopmentConfig(Config):
 
-		HOST = '$1'
-		PORT = $2
+		HOST = '$2'
+		PORT = $3
 		DEBUG = True
 
-		SQLALCHEMY_DATABASE_URI = 'sqlite:///'+ os.path.join(basedir, '$3')
+		SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '$4')
 		SQLALCHEMY_TRACK_MODIFICATIONS = False
 		$0
 
-snippet init
-	import os
+snippet createapp
 	from flask import Flask
-	from flask_sqlalchemy import SQLAlchemy
-	from flask_migrate import Migrate
-
-	app = Flask(__name__)
-	basedir = os.path.abspath(os.path.dirname(__file__))
-	dbname = "$1"
+	from config import DevelopmentConfig
 
 
-	app.config['SECRET_KEY'] = os.environ.get("$2")
-	app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-	app.config['SQLALCHEMY_DATABASE_URI'] = (
-		'sqlite:///' + os.path.join(basedir, dbname)
-	)
-	
-	db = SQLAlchemy(app)
+	def create_app(config=DevelopmentConfig):
 
-	Migrate(app, db)
+		app = Flask(__name__)
+		app.config.from_object(config)
+		return app
 
-snippet app
-	from $1 import app
+snippet run
+	from $1.application import create_app
+	from config import DevelopmentConfig
 
+	cfg = DevelopmentConfig()
 
-	HOST = "$2"
-	PORT = $3
+	app = create_app(cfg)
 
-
-	@app.route('/')
-	def index():
-    	return '<h1>Hello World!</h1>'
-		
 
 	if __name__ == '__main__':
-    	app.run(host=HOST, port=PORT, debug=True)
+		app.run(
+			host=app.config['HOST'],
+			port=app.config['PORT'],
+			debug=app.config['DEBUG']
+		)
 
 snippet model
 	class $1(db.Model):
