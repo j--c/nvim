@@ -576,3 +576,18 @@ snippet flaskconfig
 			'sqlite:///' + os.path.join(basedir, '$4')
 		)
 		$0
+
+snippet flaskrunfile
+        from app import create_app
+        from config import DevelopmentConfig
+
+
+        cfg = DevelopmentConfig()
+        app = create_app(cfg)
+
+        if __name__ == '__main__':
+        	app.run(
+        		host=app.config['HOST'],
+        		port=app.config['PORT'],
+        		debug=app.config['DEBUG']
+        	)
