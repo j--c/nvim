@@ -856,3 +856,46 @@ snippet wbr
 	<wbr>
 snippet viewport
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+snippet flaskappbase
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width">
+			<link 
+				href="{{ url_for('main.static', filename='bootstrap.min.css') }}"
+				rel="stylesheet">
+			<script
+				src="{{ url_for('main.static', filename='bootstrap.min.js') }}">
+			</script>
+			<script
+				src="{{ url_for('main.static', filename='jquery-3.3.1.min.js') }}">
+			</script>
+			<title>Puppy Adoption</title>
+		</head>
+		<body>
+			<br>
+			<div class="container">
+				<h1>Puppy Adoption</h1>
+				<div class="container bg-primary">
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link"
+								style="color:#ffffff"
+								href="{{ url_for('main.index') }}">Home</a>
+						</li>
+					</ul>
+				</div>
+				<br>
+				{% block content %}
+				{% endblock %}    
+			</div>
+		</body>
+	</html>
+
+snippet flaskcontent
+	{% extends "base.html" %}
+	{% block content %}
+		Welcome 
+	{% endblock %}

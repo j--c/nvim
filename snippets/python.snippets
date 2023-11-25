@@ -549,33 +549,6 @@ snippet config
 		SQLALCHEMY_TRACK_MODIFICATIONS = False
 		$0
 
-snippet createapp
-	from flask import Flask
-	from config import DevelopmentConfig
-
-
-	def create_app(config=DevelopmentConfig):
-
-		app = Flask(__name__)
-		app.config.from_object(config)
-		return app
-
-snippet run
-	from $1.application import create_app
-	from config import DevelopmentConfig
-
-	cfg = DevelopmentConfig()
-
-	app = create_app(cfg)
-
-
-	if __name__ == '__main__':
-		app.run(
-			host=app.config['HOST'],
-			port=app.config['PORT'],
-			debug=app.config['DEBUG']
-		)
-
 snippet model
 	class $1(db.Model):
 
