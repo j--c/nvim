@@ -581,3 +581,25 @@ snippet model
 
 		__tablename__ = $1s
 		id = db.Column(db.Integer, primary_key = True)
+
+snippet flaskconfig
+
+	import os
+	
+	basedir = os.path.abspath(os.path.dirname(__name__))
+
+
+	class Config(object):
+		SECRET_KEY = os.environ.get('$1')
+		SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+	class DevelopmentConfig(Config):
+		HOST = '$2'
+		PORT = $3 
+		DEBUG = True
+		SQLALCHEMY_TRACK_MODIFICATIONS = False
+		SQLALCHEMY_DATABASE_URI = (
+			'sqlite:///' + os.path.join(basedir, '$4')
+		)
+		$0
