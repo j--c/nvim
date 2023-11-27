@@ -1,6 +1,6 @@
 require 'nvterm'.setup({
     [5] = 'python3 -m unittest -v',
-    [6] = 'python3 run.py',
+    [6] = 'python3 app.py',
     [7] = 'git push origin main'
 })
 
