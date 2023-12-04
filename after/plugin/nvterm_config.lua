@@ -17,7 +17,7 @@ vim.keymap.set('n', '<leader>4', function()
 end)
 
 vim.keymap.set('n', '<leader>5', function()
-    require 'nvterm'.run('', 5)
+    require 'nvterm'.run('h', 5)
 end)
 
 vim.keymap.set('n', '<leader>6', function()
