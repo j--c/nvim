@@ -33,3 +33,6 @@ vim.keymap.set('x', '<leader>p', '"_dP')
 
 -- avoid Q
 vim.keymap.set('n', 'Q', '<nop>', {noremap=true, silent=false})
+
+-- folding
+vim.keymap.set('n', '<space>', 'za', {noremap=true, silent=false})
