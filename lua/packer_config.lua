@@ -4,36 +4,24 @@ return require('packer').startup(
     function(use)
 
         ----------------------------------------------------------
-        
         -- Packer
         use ('wbthomason/packer.nvim')
-
         ----------------------------------------------------------
-        
         -- Tokyo Night (colorscheme)
         use ("folke/tokyonight.nvim")
-
         ----------------------------------------------------------
-        
         -- Telescope
         use ({
             'nvim-telescope/telescope.nvim', tag = '0.1.4',
             requires = { {'nvim-lua/plenary.nvim'} }
         })
-
         ----------------------------------------------------------
-        
         -- Treesitter
         use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-        
-
         ----------------------------------------------------------
-        
         -- Vim Fugitive
         use ('tpope/vim-fugitive')
-
         ----------------------------------------------------------
-        
         -- LSP Zero
         use {
             'VonHeikemen/lsp-zero.nvim',
@@ -53,14 +41,11 @@ return require('packer').startup(
             }
         }
         use { 'saadparwaiz1/cmp_luasnip' }
-
         ----------------------------------------------------------
-
         -- NV Term
         use ('j--c/nvterm')
         -- use ('~/dev/lua/nvterm')
-
         ----------------------------------------------------------
-        
+
     end
-) 
+)
