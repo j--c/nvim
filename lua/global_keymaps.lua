@@ -36,3 +36,6 @@ vim.keymap.set('n', 'Q', '<nop>', {noremap=true, silent=false})
 
 -- folding
 vim.keymap.set('n', '<space>', 'za', {noremap=true, silent=false})
+
+-- source current file
+vim.keymap.set('n', '<leader>x', ':source %<cr>', {noremap=true, silent=false})

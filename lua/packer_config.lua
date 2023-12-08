@@ -8,10 +8,13 @@ return require('packer').startup(
         use ('wbthomason/packer.nvim')
         ----------------------------------------------------------
         -- Tokyo Night (colorscheme)
-        use ("folke/tokyonight.nvim")
+        use ('folke/tokyonight.nvim')
         ----------------------------------------------------------
         -- Gruvbox (colorscheme)
-        use ("ellisonleao/gruvbox.nvim")
+        use ('ellisonleao/gruvbox.nvim')
+        ----------------------------------------------------------
+        -- OneDark (colorscheme)
+        use ('navarasu/onedark.nvim')
         ----------------------------------------------------------
         -- Telescope
         use ({
@@ -49,6 +52,7 @@ return require('packer').startup(
         use ('j--c/nvterm')
         -- use ('~/dev/lua/nvterm')
         ----------------------------------------------------------
+        use ('j--c/nvcd')
 
     end
 )
