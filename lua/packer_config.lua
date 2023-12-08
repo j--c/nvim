@@ -10,6 +10,9 @@ return require('packer').startup(
         -- Tokyo Night (colorscheme)
         use ("folke/tokyonight.nvim")
         ----------------------------------------------------------
+        -- Gruvbox (colorscheme)
+        use ("ellisonleao/gruvbox.nvim")
+        ----------------------------------------------------------
         -- Telescope
         use ({
             'nvim-telescope/telescope.nvim', tag = '0.1.4',
