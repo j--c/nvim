@@ -1,7 +1,7 @@
 require 'nvterm'.setup({
-    [5] = 'python3 -m unittest -v',
-    [6] = 'python3 app.py',
-    [7] = 'git push origin main'
+    {index = 5, command = 'python3', paramfile = nil},
+    {index = 6, command = 'flask run', paramfile = 'flask_run_parms.txt'},
+    {index = 7, command = 'git push', paramfile = 'git_push_parms.txt'}
 })
 
 vim.keymap.set('n', '<leader>2', function()
