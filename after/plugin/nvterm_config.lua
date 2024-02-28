@@ -1,5 +1,5 @@
 require 'nvterm'.setup({
-    {index = 5, command = 'python3', paramfile = nil},
+    {index = 5, command = 'python3', paramfile = 'python_parms.txt'},
     {index = 6, command = 'flask run', paramfile = 'flask_run_parms.txt'},
     {index = 7, command = 'git push', paramfile = 'git_push_parms.txt'}
 })
