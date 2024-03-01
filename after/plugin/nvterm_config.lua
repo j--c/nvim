@@ -1,8 +1,6 @@
-require 'nvterm'.setup({
-    {index = 5, command = 'python3', paramfile = nil},
-    {index = 6, command = 'flask run', paramfile = 'flask_run_parms.txt'},
-    {index = 7, command = 'git push', paramfile = 'git_push_parms.txt'}
-})
+local cmds = require 'nvt-cfg.cmds'
+
+require 'nvterm'.setup(cmds)
 
 vim.keymap.set('n', '<leader>2', function()
     require 'nvterm'.run('', nil)
