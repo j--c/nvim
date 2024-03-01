@@ -1,6 +1,4 @@
-local cmds = require 'nvt-cfg.cmds'
-
-require 'nvterm'.setup(cmds)
+require 'nvterm'.setup()
 
 vim.keymap.set('n', '<leader>2', function()
     require 'nvterm'.run('', nil)
