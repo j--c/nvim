@@ -1,4 +1,4 @@
-require 'nvterm'.setup()
+require 'nvterm'.setup(nil, nil)
 
 vim.keymap.set('n', '<leader>2', function()
     require 'nvterm'.run('', nil)
