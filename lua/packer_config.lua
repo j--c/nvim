@@ -7,14 +7,14 @@ return require('packer').startup(
         -- Packer
         use ('wbthomason/packer.nvim')
         ----------------------------------------------------------
-        -- Tokyo Night (colorscheme)
-        use ('folke/tokyonight.nvim')
-        ----------------------------------------------------------
         -- Gruvbox (colorscheme)
         use ('ellisonleao/gruvbox.nvim')
         ----------------------------------------------------------
         -- OneDark (colorscheme)
         use ('navarasu/onedark.nvim')
+        ----------------------------------------------------------
+        -- OneDark (colorscheme)
+        use ('marko-cerovac/material.nvim')
         ----------------------------------------------------------
         -- Telescope
         use ({

@@ -1,4 +1,4 @@
-require('global_colorscheme').load_onedark()
+require('global_colorscheme').load_material()
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 vim.opt.listchars = {tab = '▸ ', eol = '¬', space = '␣'}
