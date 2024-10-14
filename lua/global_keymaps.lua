@@ -39,3 +39,10 @@ vim.keymap.set('n', '<space>', 'za', {noremap=true, silent=false})
 
 -- source current file
 vim.keymap.set('n', '<leader>x', ':source %<cr>', {noremap=true, silent=false})
+
+-- set color scheme
+vim.keymap.set(
+    'n', '<leader>;',
+    ':lua require("material.functions").find_style()<cr>', {noremap=true, silent=false}
+)
+

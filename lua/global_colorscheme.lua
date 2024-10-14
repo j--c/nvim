@@ -150,6 +150,7 @@ M.load_material = function()
     })
     vim.g.material_style = "darker"
     vim.cmd("colorscheme material")
+
 end
 
 return M
