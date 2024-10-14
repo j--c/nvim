@@ -148,7 +148,7 @@ M.load_material = function()
 
         custom_highlights = {}, -- Overwrite highlights with your own
     })
-    vim.g.material_style = "darker"
+    vim.g.material_style = "deep ocean"
     vim.cmd("colorscheme material")
 
 end
