@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>4', function()
 end)
 
 vim.keymap.set('n', '<leader>5', function()
-    require 'nvterm'.run('h', 5)
+    require 'nvterm'.run('h', nil)
 end)
 
 vim.keymap.set('n', '<leader>6', function()
@@ -22,4 +22,8 @@ end)
 
 vim.keymap.set('n', '<leader>7', function()
     require 'nvterm'.run('h', 7)
+end)
+
+vim.keymap.set('n', '<leader>8', function()
+    require 'nvterm'.run('h', 8)
 end)
