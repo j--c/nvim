@@ -1,28 +1,39 @@
 require('telescope').load_extension 'file_browser'
 local builtin = require('telescope.builtin')
 
-local get_input_from_user = function(prompt_msg)
-    return vim.fn.input(prompt_msg .. ' > ')
-end
-
 local is_valid_directory = function(path)
     return (vim.fn.isdirectory(path)) ~= 0
 end
 
-local get_path_from_user = function(prompt_msg)
-    local user_path = get_input_from_user(prompt_msg)
-    user_path =  user_path:gsub("%s+", "")
-    return user_path:gsub('~', vim.env.HOME)
+local prompt_for_new_wd = function(prompt, cncl_tkn)
+    local input_opts = {
+        prompt = prompt,
+        default = vim.env.HOME,
+        cancelreturn = cncl_tkn
+    }
+    return vim.fn.input(input_opts)
 end
 
-local find_files_in_dir = function(find_prompt, invalid_dir_msg, dir)
+local scrub_path = function(path)
+    local trimmed_path = path:gsub("%s+", "")
+    local scrubbed_path = trimmed_path:gsub('~', vim.env.HOME)
+    return scrubbed_path
+end
+
+local find_files_in_dir = function(opts)
+    local dir = opts.dir
     if dir == nil then
-        dir = get_path_from_user(find_prompt)
+        dir = prompt_for_new_wd('Find files in: ', opts.cncl_tkn)
     end
-    if dir ~= nil and is_valid_directory(dir) then
-        builtin.find_files({cwd = dir})
+    if (dir == opts.cncl_tkn) then
+        print('Operation cancelled!')
     else
-        print(invalid_dir_msg)
+        local scrubbed_dir_path = scrub_path(dir)
+        if is_valid_directory(scrubbed_dir_path) then
+            builtin.find_files({cwd = scrubbed_dir_path})
+        else
+            print('Invalid directory!')
+        end
     end
 end
 
@@ -33,13 +44,19 @@ vim.keymap.set('n', '<leader>gt', builtin.git_files, {})
 vim.keymap.set('n', '<leader>rf', builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>tr', builtin.treesitter, {})
 vim.keymap.set('n', '<leader>gr', function()
-    builtin.grep_string({ search = get_input_from_user('Grep') });
+    builtin.grep_string({ search = vim.fn.input('Grep > ')})
 end)
 
 vim.keymap.set('n', '<leader>9',  function()
-    find_files_in_dir(nil, nil, '/home/jc/.config/nvim')
+    local opts = {}
+    opts.dir = '~/.config/nvim'
+    opts.cncl_tkn = 'oajsdpok1j'
+    find_files_in_dir(opts)
 end)
 
 vim.keymap.set('n', '<leader>ff',  function()
-    find_files_in_dir('Find files in: ', 'Invalid directory!', nil)
+    local opts = {}
+    opts.dir = nil
+    opts.cncl_tkn = 'oajsdpok1j'
+    find_files_in_dir(opts)
 end)
