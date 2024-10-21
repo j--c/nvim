@@ -1,13 +1,13 @@
 vim.keymap.set(
     'n',
     '<leader>m',
-    ':SwapNvimConfig<cr>',
+    ':SwapCwdNvimConfig<cr>',
     {noremap=true, silent=false}
 )
 
 vim.keymap.set(
     'n',
     '<leader>n',
-    ':SwapNvimCustom<cr>',
+    ':SwapCwdCustom<cr>',
     {noremap=true, silent=false}
 )
