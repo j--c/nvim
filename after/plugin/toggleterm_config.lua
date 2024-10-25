@@ -6,11 +6,18 @@ require('toggleterm').setup({
             return vim.o.columns * 0.4
         end
     end,
-    shade_terminals = false,
-    boder = 'single'
+    open_mapping = [[<A-t>]],
+    hide_numbers = true,
+    shade_terminals = true,
+    shading_factor = 20,
+    boder = 'single',
+    start_in_insert = true,
+    shell = vim.o.shell
 })
 
+
 local hdn = require('global_hidden')
+
 
 local exec_cmds = {
     flsk = 'cmd="flask run --host=' .. hdn.flsk_dev_host .. ' --port=9999"',
@@ -19,8 +26,8 @@ local exec_cmds = {
     git_pull = 'cmd="git pull origin main"',
 }
 
-vim.keymap.set('n', '<leader>2', ':ToggleTerm direction="float"<cr>', {})
-vim.keymap.set('n', '<leader>6', ':TermExec ' .. exec_cmds.flsk .. '<cr>', {})
-vim.keymap.set('n', '<C-e>', ':TermExec ' .. exec_cmds.env ..  '<cr>', {})
-vim.keymap.set('n', '<leader>7', ':TermExec ' .. exec_cmds.git_push ..  '<cr>', {})
-vim.keymap.set('n', '<leader>8', ':TermExec ' .. exec_cmds.git_pull ..  '<cr>', {})
+
+vim.keymap.set('n', '<A-6>', ':TermExec direction=vertical ' .. exec_cmds.flsk .. '<cr>', {})
+vim.keymap.set('n', '<A-e>', ':TermExec ' .. exec_cmds.env ..  '<cr>', {})
+vim.keymap.set('n', '<A-7>', ':TermExec ' .. exec_cmds.git_push ..  '<cr>', {})
+vim.keymap.set('n', '<A-8>', ':TermExec ' .. exec_cmds.git_pull ..  '<cr>', {})
