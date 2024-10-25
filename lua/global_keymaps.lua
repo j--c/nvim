@@ -4,9 +4,6 @@ vim.g.mapleader = ","
 -- netrw
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex, {noremap=true, silent=false})
 
--- hidden characters
-vim.keymap.set('n', '<leader>0', ':set list!<cr>', {noremap=true, silent=false})
-
 -- buffers
 vim.keymap.set('n', '<leader>b', ':bn<cr>', {noremap=true, silent=false})
 vim.keymap.set('n', '<leader>d', ':bd<cr>', {noremap=true, silent=false})
