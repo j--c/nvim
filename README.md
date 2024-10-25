@@ -1,2 +1,2 @@
 # nvim
-new refreshed neovim config
+newly redesigned nvim config
