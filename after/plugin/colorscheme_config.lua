@@ -105,7 +105,7 @@ require('material').setup {
         darker = false -- Enable higher contrast text for darker style
     },
 
-    lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
+    lualine_style = "default", -- Lualine style ( can be 'stealth' or 'default' )
 
     async_loading = false, -- Load parts of the theme asynchronously for faster startup (turned on by default)
 
@@ -114,5 +114,5 @@ require('material').setup {
     custom_highlights = {} -- Overwrite highlights with your own
 }
 
-vim.g.material_style = 'deep ocean'
+vim.g.material_style = 'palenight'
 vim.cmd 'colorscheme material'
