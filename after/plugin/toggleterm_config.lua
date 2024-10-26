@@ -18,16 +18,35 @@ require('toggleterm').setup({
 
 local hdn = require('global_hidden')
 
+local directs = {
+    dh = 'direction=horizontal ',
+    dv = 'direction=vertical ',
+}
 
 local exec_cmds = {
     flsk = 'cmd="flask run --host=' .. hdn.flsk_dev_host .. ' --port=9999"',
-    env = 'direction=vertical cmd="env"',
-    git_push = 'cmd="git push origin main"',
-    git_pull = 'cmd="git pull origin main"',
+    envs = 'cmd="env"',
+    push = 'cmd="git push origin main"',
+    pull = 'cmd="git pull origin main"',
 }
 
 
-vim.keymap.set('n', '<A-6>', ':TermExec direction=vertical ' .. exec_cmds.flsk .. '<cr>', {})
-vim.keymap.set('n', '<A-e>', ':TermExec ' .. exec_cmds.env ..  '<cr>', {})
-vim.keymap.set('n', '<A-7>', ':TermExec ' .. exec_cmds.git_push ..  '<cr>', {})
-vim.keymap.set('n', '<A-8>', ':TermExec ' .. exec_cmds.git_pull ..  '<cr>', {})
+vim.keymap.set(
+    'n', '<A-6>',
+    ':TermExec ' .. directs.dh .. ' go_back=0 ' .. exec_cmds.flsk .. '<cr>',
+{})
+
+vim.keymap.set(
+    'n', '<A-e>',
+    ':TermExec ' .. directs.dh .. ' go_back=0 ' .. exec_cmds.envs .. '<cr>',
+{})
+
+vim.keymap.set(
+    'n', '<A-7>',
+    ':TermExec ' .. directs.dh .. ' go_back=0 ' .. exec_cmds.push .. '<cr>',
+{})
+
+vim.keymap.set(
+    'n', '<A-8>',
+    ':TermExec ' .. directs.dh .. ' go_back=0 '.. exec_cmds.pull .. '<cr>',
+{})
