@@ -3,12 +3,12 @@ require('toggleterm').setup({
         if term.direction == "horizontal" then
             return 7
         elseif term.direction == "vertical" then
-            return vim.o.columns * 0.4
+            return vim.o.columns * 1
         end
     end,
     open_mapping = [[<A-t>]],
     hide_numbers = true,
-    shade_terminals = true,
+    shade_terminals = false,
     shading_factor = 20,
     boder = 'single',
     start_in_insert = true,
@@ -28,6 +28,8 @@ local exec_cmds = {
     envs = 'cmd="env"',
     push = 'cmd="git push origin main"',
     pull = 'cmd="git pull origin main"',
+    unittest = 'cmd="python3 -m unittest -v"',
+    bdd = 'cmd="behave test/features"',
 }
 
 
@@ -49,4 +51,14 @@ vim.keymap.set(
 vim.keymap.set(
     'n', '<A-8>',
     ':TermExec ' .. directs.dh .. ' go_back=0 '.. exec_cmds.pull .. '<cr>',
+{})
+
+vim.keymap.set(
+    'n', '<A-0>',
+    ':TermExec ' .. directs.dv .. ' go_back=0 ' .. exec_cmds.unittest .. '<cr>',
+{})
+
+vim.keymap.set(
+    'n', '<A-5>',
+    ':TermExec ' .. directs.dv .. ' go_back=0 ' .. exec_cmds.bdd .. '<cr>',
 {})
