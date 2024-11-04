@@ -30,7 +30,7 @@ vim.keymap.set('n', '<leader>9',  function()
     end
 end)
 
-vim.keymap.set('n', '<C-v>',  function()
+vim.keymap.set('n', '<A-v>',  function()
     local clean_dir_path = require 'cwd'.clean_dir_path(
         '~/.local/share/nvim/site/pack/packer/start'
     )
