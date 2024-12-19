@@ -30,8 +30,8 @@ local exec_cmds = {
     pull = 'cmd="git pull origin main"',
     unittest = 'cmd="python3 -m unittest -v"',
     bdd = 'cmd="behave test/features"',
+    pymain = 'cmd="python3 %"',
 }
-
 
 vim.keymap.set(
     'n', '<A-6>',
@@ -61,4 +61,9 @@ vim.keymap.set(
 vim.keymap.set(
     'n', '<A-5>',
     ':TermExec ' .. directs.dv .. ' go_back=0 ' .. exec_cmds.bdd .. '<cr>',
+{})
+
+vim.keymap.set(
+    'n', '<A-p>',
+    ':TermExec ' .. directs.dv .. ' go_back=0 ' .. exec_cmds.pymain .. '<cr>',
 {})
