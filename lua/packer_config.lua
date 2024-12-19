@@ -15,7 +15,7 @@ return require('packer').startup(
         ----------------------------------------------------------
         -- OneDark (colorscheme)
         use ('marko-cerovac/material.nvim')
-        ----------------------------------------------------------
+       ----------------------------------------------------------
         -- LuaLine 
         use {
             'nvim-lualine/lualine.nvim',
@@ -48,12 +48,14 @@ return require('packer').startup(
                 {'williamboman/mason-lspconfig.nvim'},
                 -- LSP Support
                 {'neovim/nvim-lspconfig'},
+                -- snippets
+                {'L3MON4D3/LuaSnip'},
                 -- Autocompletion
                 {'hrsh7th/nvim-cmp'},
                 {'hrsh7th/cmp-nvim-lsp'},
-                {
-                    'L3MON4D3/LuaSnip',
-                }
+                {'hrsh7th/cmp-buffer'},
+                {'hrsh7th/cmp-path'},
+                {'hrsh7th/cmp-cmdline'},
             }
         }
         use { 'saadparwaiz1/cmp_luasnip' }
@@ -62,7 +64,7 @@ return require('packer').startup(
         use('akinsho/toggleterm.nvim')
         ----------------------------------------------------------
         -- cwd.nvim
-        --use ('j--c/cwd.nvim')
-        use ('~/dev/lua/my-plugins/cwd.nvim')
+        use ('j--c/cwd.nvim')
+        --use ('~/dev/lua/my-plugins/cwd.nvim')
     end
 )
