@@ -96,7 +96,7 @@ snippet adeff
 # New Method
 snippet defi
 	def __init__(self, ${1:args}):
-		${0}
+	    ${0}
 snippet defm
 	def ${1:mname}(self, ${2:arg}):
 		${0}
@@ -246,7 +246,7 @@ snippet "
 
 # assertions
 snippet a=
-	self.assertEqual(${0}, ${1})
+	self.assertEqual(${1}, ${2})
 # test function/method
 snippet test
 	def test_${1:description}(${2:`indent('.') ? 'self' : ''`}):
