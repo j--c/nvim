@@ -6,6 +6,7 @@ return {
         'nvim-telescope/telescope.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
+            {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'}
         },
         config = function()
             require('telescope').setup {
@@ -16,6 +17,9 @@ return {
 
             -- Key map to find files
             vim.keymap.set('n', '<leader><leader>', require('telescope.builtin').find_files)
+
+            -- Key map to search content within files
+            vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep)
         end
     }
 }
