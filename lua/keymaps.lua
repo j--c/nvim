@@ -1,6 +1,10 @@
 ------------------------------------------------------------------------------
 -- Global keymaps not affiliated with a plugin
 ------------------------------------------------------------------------------
+-- Move by display lines
+vim.api.nvim_set_keymap('n', 'j', 'gj', {noremap = true})
+vim.api.nvim_set_keymap('n', 'k', 'gk', {noremap = true})
+
 -- Source current file
 vim.api.nvim_set_keymap('n', '<leader>x', ':so %', {noremap = true})
 
@@ -24,3 +28,6 @@ vim.api.nvim_set_keymap('n', '<leader>w', '<C-w>w', {noremap = true})
 
 -- Close window
 vim.api.nvim_set_keymap('n', '<leader>c', '<C-w>q', {noremap = true})
+
+-- Folding
+vim.api.nvim_set_keymap('n', '<space>', 'za', {noremap = true})
