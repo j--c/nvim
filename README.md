@@ -1,2 +1,2 @@
 # nvim
-my nvim setup
+my nvim setup...
