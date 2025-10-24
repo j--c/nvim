@@ -12,6 +12,9 @@ return {
 
             -- Key map to swap working directory 
             vim.api.nvim_set_keymap('n', '<leader>n', ':CwdSwap<cr>', {noremap = true})
+
+            -- Key map to change working directory 
+            vim.api.nvim_set_keymap('n', '<leader>z', ':CwdChange<cr>', {noremap = true})
         end
     }
 }
