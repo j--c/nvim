@@ -31,3 +31,6 @@ vim.api.nvim_set_keymap('n', '<leader>c', '<C-w>q', {noremap = true})
 
 -- Folding
 vim.api.nvim_set_keymap('n', '<space>', 'za', {noremap = true})
+
+--ScratchpaDScratchpad
+vim.api.nvim_set_keymap('n', '<leader>0', ':e ~/scratchpad.txt<cr>', {noremap = true})
